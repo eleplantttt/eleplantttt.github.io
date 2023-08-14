@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://eleplantttt.github.io">
-  <title>Archives: 2023 | 程学斌的个人博客</title>
+  <title>可扩展哈希表 | 程学斌的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本博客主要分享C++后端以及数据库相关内容">
-<meta property="og:type" content="website">
-<meta property="og:title" content="程学斌的个人博客">
-<meta property="og:url" content="https://eleplantttt.github.io/archives/2023/index.html">
+  <meta name="description" content="CMU15-445（Fall 2022）P1#Task1可扩展哈希可扩展哈希概述Extendible Hashing 是一种动态哈希方法，其中目录和桶被用于哈希数据。可扩展哈希是一个有力的灵活的方法，其中哈希函数也经历动态的改变。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="可扩展哈希表">
+<meta property="og:url" content="https://eleplantttt.github.io/2023/08/14/%E5%8F%AF%E6%89%A9%E5%B1%95%E5%93%88%E5%B8%8C%E8%A1%A8/index.html">
 <meta property="og:site_name" content="程学斌的个人博客">
-<meta property="og:description" content="本博客主要分享C++后端以及数据库相关内容">
+<meta property="og:description" content="CMU15-445（Fall 2022）P1#Task1可扩展哈希可扩展哈希概述Extendible Hashing 是一种动态哈希方法，其中目录和桶被用于哈希数据。可扩展哈希是一个有力的灵活的方法，其中哈希函数也经历动态的改变。">
 <meta property="og:locale">
+<meta property="og:image" content="https://eleplantttt.github.io/assets/%E5%8F%AF%E6%89%A9%E5%B1%95%E5%93%88%E5%B8%8C.PNG">
+<meta property="og:image" content="https://eleplantttt.github.io/assets/%E5%8F%AF%E6%89%A9%E5%B1%95%E5%93%88%E5%B8%8C%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png">
+<meta property="og:image" content="https://eleplantttt.github.io/2023/08/14/assets/%E6%A1%B6%E5%88%86%E8%A3%82.png">
+<meta property="article:published_time" content="2023-08-14T11:45:52.000Z">
+<meta property="article:modified_time" content="2023-08-14T12:19:50.946Z">
 <meta property="article:author" content="eleplantttt">
-<meta property="article:tag" content="C++ 嵌入式 数据库 计算机网络 操作系统 系统编程">
+<meta property="article:tag" content="CMU15&#x2F;445">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://eleplantttt.github.io/assets/%E5%8F%AF%E6%89%A9%E5%B1%95%E5%93%88%E5%B8%8C.PNG">
   
     <link rel="alternative" href="/atom.xml" title="程学斌的个人博客" type="application/atom+xml">
   
@@ -153,36 +159,122 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-可扩展哈希表" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/08/14/%E5%8F%AF%E6%89%A9%E5%B1%95%E5%93%88%E5%B8%8C%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2023-08-14T11:45:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-14</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/08/14/%E5%8F%AF%E6%89%A9%E5%B1%95%E5%93%88%E5%B8%8C%E8%A1%A8/">可扩展哈希表</a>
+    <h1 class="article-title" itemprop="name">
+      可扩展哈希表
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2023/08/14/%E5%8F%AF%E6%89%A9%E5%B1%95%E5%93%88%E5%B8%8C%E8%A1%A8/" class="archive-article-date">
+  	<time datetime="2023-08-14T11:45:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CMU15-445（Fall-2022）P1-Task1可扩展哈希"><a href="#CMU15-445（Fall-2022）P1-Task1可扩展哈希" class="headerlink" title="CMU15-445（Fall 2022）P1#Task1可扩展哈希"></a>CMU15-445（Fall 2022）P1#Task1可扩展哈希</h1><h3 id="可扩展哈希概述"><a href="#可扩展哈希概述" class="headerlink" title="可扩展哈希概述"></a>可扩展哈希概述</h3><p><strong>Extendible Hashing</strong> 是一种动态哈希方法，其中目录和桶被用于哈希数据。可扩展哈希是一个有力的灵活的方法，其中哈希函数也经历动态的改变。</p>
+<span id="more"></span>
+
+<p><strong>在哈希技术中主要的特征如下：</strong></p>
+<ul>
+<li><strong>目录:</strong> 目录在指针中存储桶的地址。每个目录被分配一个<code>id</code> ，每次目录扩张时，<code>id</code>可能会发生变化。</li>
+<li><strong>桶:</strong> 桶被用于哈希真实的数据。</li>
+</ul>
+<p><img src="/../assets/%E5%8F%AF%E6%89%A9%E5%B1%95%E5%93%88%E5%B8%8C.PNG" alt="可扩展哈希"></p>
+<p>相关术语：</p>
+<ul>
+<li><p><strong>目录:</strong> 这个容器存储指向桶的指针。每个目录给定一个唯一的id，当扩张发生时<code>id</code>可能随之改变。哈希函数返回这个目录的id，这个<code>id</code>被用来指向合适的桶。$目录的数量 &#x3D; 2^{全局深度}$</p>
+</li>
+<li><p><strong>桶:</strong>  它们存储哈希键。目录指向桶。如果局部深度小于全局深度时，一个桶可能包含不止一个指针指向它。</p>
+</li>
+<li><p><strong>全局深度</strong>：它跟目录相关联。它们表示哈希函数使用的比特位数目去分类这些键。全局深度&#x3D;目录id的比特位数。</p>
+</li>
+<li><p><strong>局部深度</strong>：和全局深度类似，除了局部深度是跟桶关联，而不是跟目录。当桶溢出发生时，局部深度根据全局深度去决定执行的行为。局部深度通常小于等于全局深度。</p>
+</li>
+<li><p><strong>桶分裂</strong>：当桶的元素超过了特定的大小，那么桶分裂成两个部分。</p>
+</li>
+<li><p><strong>目录扩容</strong>：当桶溢出时，产生目录扩容。当溢出桶的局部深度等于全局深度时，目录扩容被执行。</p>
+</li>
+</ul>
+<h3 id="可扩展哈希基本工作流程"><a href="#可扩展哈希基本工作流程" class="headerlink" title="可扩展哈希基本工作流程"></a>可扩展哈希基本工作流程</h3><p><img src="/../assets/%E5%8F%AF%E6%89%A9%E5%B1%95%E5%93%88%E5%B8%8C%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png" alt="可扩展哈希基本工作流程"></p>
+<ul>
+<li><p><strong>步骤1 – 分析数据元素：</strong>数据元素可能以各种形式存在，比如整型，字符串，浮点数等等…当前，我们考虑整形这类数据元素，比如49。</p>
+</li>
+<li><p><strong>步骤2 - 转换成二进制形式：</strong>将数据元素转换为二进制形式。对于字符串元素，考虑ASCII码起始字符的对应整数，然后转换成二进制形式。因为我们是将49作为数据元素，它的二进制形式是11001。</p>
+</li>
+<li><p><strong>步骤3-检查目录的全局深度：</strong>假设哈希目录的全局深度是3。</p>
+</li>
+<li><p><strong>步骤4 - 识别目录：</strong>考虑在二进制下最低“全局深度”位，然后去匹配目录id。比如，二进制是：110001，全局深度是3，所以哈希函数会返回110<strong>001</strong>最后三位，即001。</p>
+</li>
+<li><p><strong>步骤5 - 导航</strong>：现在，访问目录id&#x3D;001指向的桶。</p>
+</li>
+<li><p><strong>步骤6 – 插入和溢出检查：</strong>插入元素并且检查桶是否溢出。如果遇到溢出，转向步骤7和步骤8，否则转到步骤9。</p>
+</li>
+<li><p><strong>步骤7– 处理数据插入过程中的溢出情况:</strong>  很多情况下，当在桶里插入数据时，可能发生桶溢出。在这种情况下，我们需要采取下面合适的流程去避免误操作数据。首先，检查局部深度是否小于或等于全局深度。然后选择下述情况之一。</p>
+<ul>
+<li><p><strong>情况1:</strong> 如果溢出桶的本地深度等于全局深度，那么需要执行目录扩张和桶分裂。然后全局深度和局部深度的值增加1，并且指定合适的指针。目录扩张会double哈希结果中的目录数量。</p>
+</li>
+<li><p><strong>情况2:</strong> 如果本地深度小于全局深度，那么仅仅发生桶分裂。然后仅仅把局部深度增加1。并且指定合适的指针。</p>
+<img src="../assets/桶分裂.png" alt="桶分裂"  /></li>
+</ul>
+</li>
+<li><p><strong>步骤8-分裂桶的元素重新哈希</strong>：在被分裂的溢出桶中呈现的元素会根据目录的全局深度进行重新哈希。</p>
+</li>
+<li><p><strong>步骤9</strong> - 元素被成功哈希。</p>
+</li>
+</ul>
+<h3 id="关键观察："><a href="#关键观察：" class="headerlink" title="关键观察："></a><strong>关键观察：</strong></h3><ul>
+<li>如果局部深度小于全局深度，一个桶会被超过1个指针指向。</li>
+<li>当桶发生溢出时，在这个桶里的所有元素都要用新的局部深度重新哈希。</li>
+<li>如果溢出桶的局部深度在数据插入操作开始之后桶的大小不能改变。</li>
+</ul>
+<h3 id="优势："><a href="#优势：" class="headerlink" title="优势："></a>优势：</h3><ul>
+<li>数据检索很便宜（根据计算）</li>
+<li>存储容量动态增长，不用担心数据丢失。</li>
+<li>随着在哈希函数中的动态改变，相关联的旧值被重新哈希到新的哈希函数中。</li>
+</ul>
+<h3 id="限制："><a href="#限制：" class="headerlink" title="限制："></a>限制：</h3><ul>
+<li>当记录保持非均匀分布，如果多个记录被哈希到同一个目录，那么目录的大小会显著增加。</li>
+<li>每个桶的大小是固定的。</li>
+<li>当全局深度和局部深度差距很大时，内存在指针上是浪费的。</li>
+<li>这个方法在代码上很复杂。</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -194,73 +286,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://eleplantttt.github.io/2023/08/14/%E5%8F%AF%E6%89%A9%E5%B1%95%E5%93%88%E5%B8%8C%E8%A1%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2023-07-31T13:40:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-31</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2023/07/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">计算机网络（一）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/07/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89/">计算机网络（一）</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/06/README/" class="archive-article-date">
-  	<time datetime="2023-07-06T08:48:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/07/06/README/">Blog有感</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -283,8 +408,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
