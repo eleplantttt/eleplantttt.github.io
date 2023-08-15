@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://eleplantttt.github.io">
-  <title>Archives: 2023/8 | 程学斌的个人博客</title>
+  <title>数据库项目技术点 | 程学斌的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本博客主要分享C++后端以及数据库相关内容">
-<meta property="og:type" content="website">
-<meta property="og:title" content="程学斌的个人博客">
-<meta property="og:url" content="https://eleplantttt.github.io/archives/2023/08/index.html">
+  <meta name="description" content="代码实现细节：  返回类型尾置：这种实现为所有函数，形式为函数前加auto将要返回的类型放在括号前，一开始不习惯这样写，后面回过头来看代码发现这个新特性很方便，能够快速识别返回类型，这种形式对于返回类型比较复杂的函数最有效，比如返回类型是数组的指针或者数组的引用。  shared_lock、unique_lock、lock_guard、scope_lock  lock_guard：一个最简单的RA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库项目技术点">
+<meta property="og:url" content="https://eleplantttt.github.io/2023/08/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A1%B9%E7%9B%AE%E6%8A%80%E6%9C%AF%E7%82%B9/index.html">
 <meta property="og:site_name" content="程学斌的个人博客">
-<meta property="og:description" content="本博客主要分享C++后端以及数据库相关内容">
+<meta property="og:description" content="代码实现细节：  返回类型尾置：这种实现为所有函数，形式为函数前加auto将要返回的类型放在括号前，一开始不习惯这样写，后面回过头来看代码发现这个新特性很方便，能够快速识别返回类型，这种形式对于返回类型比较复杂的函数最有效，比如返回类型是数组的指针或者数组的引用。  shared_lock、unique_lock、lock_guard、scope_lock  lock_guard：一个最简单的RA">
 <meta property="og:locale">
+<meta property="article:published_time" content="2023-08-15T07:32:37.000Z">
+<meta property="article:modified_time" content="2023-08-15T09:38:12.130Z">
 <meta property="article:author" content="eleplantttt">
-<meta property="article:tag" content="C++ 嵌入式 数据库 计算机网络 操作系统 系统编程">
+<meta property="article:tag" content="CMU15&#x2F;445">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="程学斌的个人博客" type="application/atom+xml">
@@ -153,36 +155,68 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-数据库项目技术点" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      数据库项目技术点
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/08/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A1%B9%E7%9B%AE%E6%8A%80%E6%9C%AF%E7%82%B9/" class="archive-article-date">
+
+        
+        <a href="/2023/08/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A1%B9%E7%9B%AE%E6%8A%80%E6%9C%AF%E7%82%B9/" class="archive-article-date">
   	<time datetime="2023-08-15T07:32:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-15</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/08/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A1%B9%E7%9B%AE%E6%8A%80%E6%9C%AF%E7%82%B9/">数据库项目技术点</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>代码实现细节：</p>
+<ul>
+<li><p>返回类型尾置：这种实现为所有函数，形式为函数前加auto将要返回的类型放在括号前，一开始不习惯这样写，后面回过头来看代码发现这个新特性很方便，能够快速识别返回类型，这种形式对于返回类型比较复杂的函数最有效，比如返回类型是数组的指针或者数组的引用。</p>
+</li>
+<li><p>shared_lock、unique_lock、lock_guard、scope_lock</p>
+<ul>
+<li><strong>lock_guard</strong>：一个最简单的RAII风格的<code>lock_guard</code> 不支持手动锁定和解锁，也不支持条件变量。</li>
+<li><strong>unique_lock</strong>：这是<strong>C++11</strong>中一个更灵活的锁，它允许手动锁定和解锁互斥量，以及与条件变量一起使用（是lock_guard的进阶版）。与 lock_guard 类似，unique_lock 也是一个 RAII 风格的锁，当对象离开作用域时，它会自动解锁互斥量。unique_lock 还支持延迟锁定、尝试锁定和可转移的锁所有权。</li>
+<li><strong>shared_lock</strong>：<strong>C++14</strong>引入的锁，这是一个用于共享互斥量（如 std::shared_mutex 或 std::shared_timed_mutex）的锁，允许多个线程同时读取共享数据，但在写入数据时仍然保证互斥。shared_lock 也是一个 RAII 风格的锁，当对象离开作用域时，它会自动解锁共享互斥量。shared_lock 支持手动锁定和解锁，以及尝试锁定。</li>
+<li><strong>scoped_lock</strong>：<strong>这是 C++17 引入的一个新锁，用于同时锁定多个互斥量，以避免死锁</strong>。scoped_lock 是一个 RAII 风格的锁，当对象离开作用域时，它会自动解锁所有互斥量。scoped_lock 不支持手动锁定和解锁，也不支持条件变量。它的主要用途是在需要同时锁定多个互斥量时提供简单且安全的解决方案。</li>
+</ul>
+</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -194,171 +228,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://eleplantttt.github.io/2023/08/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A1%B9%E7%9B%AE%E6%8A%80%E6%9C%AF%E7%82%B9/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/08/15/CMU15-445P1%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82/" class="archive-article-date">
-  	<time datetime="2023-08-15T06:37:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-15</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2023/08/15/CMU15-445P1%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CMU15/445P1代码实现细节</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/08/15/CMU15-445P1%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82/">CMU15/445P1代码实现细节</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CMU15/445</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/08/14/LRU-K/" class="archive-article-date">
-  	<time datetime="2023-08-14T13:47:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/08/14/LRU-K/">LRU-K</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CMU15/445</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/08/14/%E5%93%88%E5%B8%8C%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2023-08-14T12:40:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/08/14/%E5%93%88%E5%B8%8C%E8%A1%A8/">哈希表</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">STL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/08/14/%E5%8F%AF%E6%89%A9%E5%B1%95%E5%93%88%E5%B8%8C%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2023-08-14T11:45:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/08/14/%E5%8F%AF%E6%89%A9%E5%B1%95%E5%93%88%E5%B8%8C%E8%A1%A8/">可扩展哈希表</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CMU15/445</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -381,8 +350,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://eleplantttt.github.io">
-  <title>Archives: 2023/8 | 程学斌的个人博客</title>
+  <title>CMU15/445P1代码实现细节 | 程学斌的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本博客主要分享C++后端以及数据库相关内容">
-<meta property="og:type" content="website">
-<meta property="og:title" content="程学斌的个人博客">
-<meta property="og:url" content="https://eleplantttt.github.io/archives/2023/08/index.html">
+  <meta name="description" content="1.可扩展哈希表需求分析：  Find(K, V) : 对于给定的键K，检查它在哈希表中是否存在。如果存在，那么将这个指针相对应的值存进V中，并返回true。如果这个键不存在，那么返回false。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CMU15&#x2F;445P1代码实现细节">
+<meta property="og:url" content="https://eleplantttt.github.io/2023/08/15/CMU15-445P1%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82/index.html">
 <meta property="og:site_name" content="程学斌的个人博客">
-<meta property="og:description" content="本博客主要分享C++后端以及数据库相关内容">
+<meta property="og:description" content="1.可扩展哈希表需求分析：  Find(K, V) : 对于给定的键K，检查它在哈希表中是否存在。如果存在，那么将这个指针相对应的值存进V中，并返回true。如果这个键不存在，那么返回false。">
 <meta property="og:locale">
+<meta property="article:published_time" content="2023-08-15T06:37:19.000Z">
+<meta property="article:modified_time" content="2023-08-15T09:37:49.834Z">
 <meta property="article:author" content="eleplantttt">
-<meta property="article:tag" content="C++ 嵌入式 数据库 计算机网络 操作系统 系统编程">
+<meta property="article:tag" content="CMU15&#x2F;445">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="程学斌的个人博客" type="application/atom+xml">
@@ -153,74 +155,103 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-CMU15-445P1代码实现细节" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/08/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A1%B9%E7%9B%AE%E6%8A%80%E6%9C%AF%E7%82%B9/" class="archive-article-date">
-  	<time datetime="2023-08-15T07:32:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/08/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A1%B9%E7%9B%AE%E6%8A%80%E6%9C%AF%E7%82%B9/">数据库项目技术点</a>
+    <h1 class="article-title" itemprop="name">
+      CMU15/445P1代码实现细节
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CMU15/445</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/08/15/CMU15-445P1%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82/" class="archive-article-date">
+        
+        <a href="/2023/08/15/CMU15-445P1%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82/" class="archive-article-date">
   	<time datetime="2023-08-15T06:37:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-15</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/08/15/CMU15-445P1%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82/">CMU15/445P1代码实现细节</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-可扩展哈希表"><a href="#1-可扩展哈希表" class="headerlink" title="1.可扩展哈希表"></a>1.可扩展哈希表</h1><p><strong>需求分析：</strong></p>
+<ul>
+<li><code>Find(K, V)</code> : 对于给定的键K，检查它在哈希表中是否存在。如果存在，那么将这个指针相对应的值存进V中，并返回true。如果这个键不存在，那么返回false。</li>
+</ul>
+<span id="more"></span>
 
-        <div class="article-info info-on-right">
-          
+<ul>
+<li><code>Insert(K, V)</code> : 插入键值对到哈希表。如果键K已经存在，那么使用新的值V覆盖它，并返回true。如果键值对不能被插入进桶（因为桶满了并且这个键不是更新已存在的键值对），那么采取下面的步骤重试：<ul>
+<li>如果桶的本地深度等于全局深度，增加全局深度并且2倍目录的大小。</li>
+<li>增加本地桶的深度</li>
+<li>分裂桶并且在桶中重新分布目录指针和键值对。</li>
+</ul>
+</li>
+<li>如果在一个插入之后桶满了，那么要实现分裂桶。但是对于这个项目如果桶满了请检查，然后在插入之前实现分裂。</li>
+<li><code>Remove(K)</code> : 对于给定的键K，从哈希表中移除对应的键值对并返回true。如果键K不存在，返回false。</li>
+<li><code>GetGlobalDepth()</code> :返回整个哈希表当前的全局深度。</li>
+<li><code>GetLocalDepth(dir_index)</code> : 返回指定目录索引指针指向桶的当前局部深度。</li>
+<li><code>GetNumBuckets()</code> : 返回在哈希表中分配的桶的总数量。</li>
+</ul>
+<h3 id="src-x2F-include-x2F-container-x2F-hash-x2F-extendible-hash-table-h"><a href="#src-x2F-include-x2F-container-x2F-hash-x2F-extendible-hash-table-h" class="headerlink" title="src&#x2F;include&#x2F;container&#x2F;hash&#x2F;extendible_hash_table.h"></a>src&#x2F;include&#x2F;container&#x2F;hash&#x2F;extendible_hash_table.h</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ExtendibleHashTable</span> : <span class="keyword">public</span> HashTable&lt;K, V&gt; &#123;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="keyword">explicit</span> <span class="title">ExtendibleHashTable</span><span class="params">(<span class="type">size_t</span> bucket_size)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">auto</span> <span class="title">GetGlobalDepth</span><span class="params">()</span> <span class="type">const</span> -&gt; <span class="type">int</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">auto</span> <span class="title">GetLocalDepth</span><span class="params">(<span class="type">int</span> dir_index)</span> <span class="type">const</span> -&gt; <span class="type">int</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">auto</span> <span class="title">GetNumBuckets</span><span class="params">()</span> <span class="type">const</span> -&gt; <span class="type">int</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">auto</span> <span class="title">Find</span><span class="params">(<span class="type">const</span> K &amp;key, V &amp;value)</span> -&gt; <span class="type">bool</span> <span class="keyword">override</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">Insert</span><span class="params">(<span class="type">const</span> K &amp;key, <span class="type">const</span> V &amp;value)</span> <span class="keyword">override</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">auto</span> <span class="title">Remove</span><span class="params">(<span class="type">const</span> K &amp;key)</span> -&gt; <span class="type">bool</span> <span class="keyword">override</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">class</span> <span class="title class_">Bucket</span> &#123;</span><br><span class="line">   <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">Bucket</span><span class="params">(<span class="type">size_t</span> size, <span class="type">int</span> depth = <span class="number">0</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">auto</span> <span class="title">IsFull</span><span class="params">()</span> <span class="type">const</span> -&gt; <span class="type">bool</span> </span>&#123;</span><br><span class="line">      <span class="function">std::shared_lock <span class="title">lock</span><span class="params">(mutex_)</span></span>;</span><br><span class="line">      <span class="keyword">return</span> list_.<span class="built_in">size</span>() == size_;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">auto</span> <span class="title">GetDepth</span><span class="params">()</span> <span class="type">const</span> -&gt; <span class="type">int</span> </span>&#123;</span><br><span class="line">      <span class="function">std::shared_lock <span class="title">lock</span><span class="params">(mutex_)</span></span>;</span><br><span class="line">      <span class="keyword">return</span> depth_;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">IncrementDepth</span><span class="params">()</span> </span>&#123; depth_++; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">auto</span> <span class="title">GetItems</span><span class="params">()</span> -&gt; std::list&lt;std::pair&lt;K, V&gt;&gt; &amp; </span>&#123; <span class="keyword">return</span> list_; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">auto</span> <span class="title">IsFullWithGuard</span><span class="params">()</span> <span class="type">const</span> -&gt; <span class="type">bool</span> </span>&#123; <span class="keyword">return</span> list_.<span class="built_in">size</span>() == size_; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">auto</span> <span class="title">GetDepthWithGuard</span><span class="params">()</span> <span class="type">const</span> -&gt; <span class="type">int</span> </span>&#123; <span class="keyword">return</span> depth_; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">auto</span> <span class="title">Find</span><span class="params">(<span class="type">const</span> K &amp;key, V &amp;value)</span> -&gt; <span class="type">bool</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">auto</span> <span class="title">Remove</span><span class="params">(<span class="type">const</span> K &amp;key)</span> -&gt; <span class="type">bool</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">auto</span> <span class="title">Insert</span><span class="params">(<span class="type">const</span> K &amp;key, <span class="type">const</span> V &amp;value)</span> -&gt; <span class="type">bool</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">auto</span> <span class="title">PrintAll</span><span class="params">()</span> -&gt; <span class="type">void</span></span>;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">private</span>:</span><br><span class="line">    <span class="type">size_t</span> size_;</span><br><span class="line">    <span class="type">int</span> depth_;</span><br><span class="line">    std::list&lt;std::pair&lt;K, V&gt;&gt; list_;</span><br><span class="line">    <span class="keyword">mutable</span> std::shared_mutex mutex_;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">private</span>:</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> global_depth_;    <span class="comment">// The global depth of the directory</span></span><br><span class="line">  <span class="type">size_t</span> bucket_size_;  <span class="comment">// The size of a bucket</span></span><br><span class="line">  <span class="type">int</span> num_buckets_;     <span class="comment">// The number of buckets in the hash table</span></span><br><span class="line">  <span class="keyword">mutable</span> std::shared_mutex latch_;</span><br><span class="line">  std::vector&lt;std::shared_ptr&lt;Bucket&gt;&gt; dir_;  <span class="comment">// The directory of the hash table</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">auto</span> <span class="title">Expansion</span><span class="params">()</span> -&gt; <span class="type">void</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">auto</span> <span class="title">RedistributeBucket</span><span class="params">(<span class="type">size_t</span> idx)</span> -&gt; <span class="type">void</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">auto</span> <span class="title">IndexOf</span><span class="params">(<span class="type">const</span> K &amp;key)</span> -&gt; <span class="type">size_t</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">auto</span> <span class="title">CalIndex</span><span class="params">(<span class="type">const</span> <span class="type">size_t</span> &amp;idx, <span class="type">int</span> depth)</span> -&gt; <span class="type">size_t</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">auto</span> <span class="title">GetGlobalDepthInternal</span><span class="params">()</span> <span class="type">const</span> -&gt; <span class="type">int</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">auto</span> <span class="title">GetLocalDepthInternal</span><span class="params">(<span class="type">int</span> dir_index)</span> <span class="type">const</span> -&gt; <span class="type">int</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">auto</span> <span class="title">GetNumBucketsInternal</span><span class="params">()</span> <span class="type">const</span> -&gt; <span class="type">int</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>ExtendibleHashTable</code> 是一个模板类，用于实现可扩展哈希表。</p>
+</li>
+<li><p>构造函数 <code>ExtendibleHashTable(size_t bucket_size)</code> 用于创建一个新的可扩展哈希表，需要传入每个桶的大小。</p>
+</li>
+<li><p><code>GetGlobalDepth()</code>、<code>GetLocalDepth(int dir_index)</code> 和 <code>GetNumBuckets()</code> 函数分别用于获取全局深度、某个目录索引对应桶的本地深度以及桶的数量。</p>
+</li>
+<li><p><code>Find(const K &amp;key, V &amp;value)</code> 用于根据给定的键查找对应的值是否存在于哈希表中。</p>
+</li>
+<li><p><code>Insert(const K &amp;key, const V &amp;value)</code> 用于插入给定的键值对到哈希表中。如果桶已满，则需要根据一定策略进行扩容和数据重新分配。</p>
+</li>
+<li><p><code>Remove(const K &amp;key)</code> 用于删除给定的键对应的键值对。</p>
+</li>
+<li><p>内部类 <code>Bucket</code> 表示哈希表的桶，包含了各种操作，如判断是否已满、获取深度、查找、删除等。</p>
+</li>
+<li><p><code>global_depth_</code> 表示全局深度，<code>bucket_size_</code> 表示桶的大小，<code>num_buckets_</code> 表示桶的数量，<code>dir_</code> 是存储桶的指针的向量。</p>
+</li>
+<li><p><code>RedistributeBucket(size_t idx)</code> 和 <code>Expansion()</code> 用于实现桶的重新分配和扩容操作。</p>
+</li>
+<li><p><code>IndexOf(const K &amp;key)</code> 用于计算给定键的目录索引。</p>
+</li>
+<li><p><code>CalIndex(const size_t &amp;idx, int depth)</code> 用于计算桶的索引。</p>
+</li>
+<li><p>其他私有成员函数和成员变量负责实现哈希表的内部操作。</p>
+<h3 id="src-x2F-container-x2F-hash-x2F-extendible-hash-table-cpp"><a href="#src-x2F-container-x2F-hash-x2F-extendible-hash-table-cpp" class="headerlink" title="src&#x2F;container&#x2F;hash&#x2F;extendible_hash_table.cpp"></a><strong>src&#x2F;container&#x2F;hash&#x2F;extendible_hash_table.cpp</strong></h3></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> bustub &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line">ExtendibleHashTable&lt;K, V&gt;::<span class="built_in">ExtendibleHashTable</span>(<span class="type">size_t</span> bucket_size)</span><br><span class="line">    : <span class="built_in">global_depth_</span>(<span class="number">0</span>), <span class="built_in">bucket_size_</span>(bucket_size), <span class="built_in">num_buckets_</span>(<span class="number">1</span>) &#123;</span><br><span class="line">  <span class="comment">// 初始化：全局深度为0，局部深度为0，桶数量为1</span></span><br><span class="line">  dir_.<span class="built_in">emplace_back</span>(std::<span class="built_in">make_shared</span>&lt;Bucket&gt;(bucket_size, global_depth_));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="keyword">auto</span> ExtendibleHashTable&lt;K, V&gt;::<span class="built_in">IndexOf</span>(<span class="type">const</span> K &amp;key) -&gt; <span class="type">size_t</span> &#123;</span><br><span class="line">  <span class="type">int</span> mask = (<span class="number">1</span> &lt;&lt; global_depth_) - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> std::<span class="built_in">hash</span>&lt;K&gt;()(key) &amp; mask;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="keyword">auto</span> ExtendibleHashTable&lt;K, V&gt;::<span class="built_in">CalIndex</span>(<span class="type">const</span> <span class="type">size_t</span> &amp;idx, <span class="type">int</span> depth) -&gt; <span class="type">size_t</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> idx ^ <span class="number">1</span> &lt;&lt; (depth - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="keyword">auto</span> ExtendibleHashTable&lt;K, V&gt;::<span class="built_in">GetGlobalDepth</span>() <span class="type">const</span> -&gt; <span class="type">int</span> &#123;</span><br><span class="line">  <span class="function">std::shared_lock <span class="title">lock</span><span class="params">(latch_)</span></span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">GetGlobalDepthInternal</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="keyword">auto</span> ExtendibleHashTable&lt;K, V&gt;::<span class="built_in">GetGlobalDepthInternal</span>() <span class="type">const</span> -&gt; <span class="type">int</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> global_depth_;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="keyword">auto</span> ExtendibleHashTable&lt;K, V&gt;::<span class="built_in">GetLocalDepth</span>(<span class="type">int</span> dir_index) <span class="type">const</span> -&gt; <span class="type">int</span> &#123;</span><br><span class="line">  <span class="function">std::shared_lock <span class="title">lock</span><span class="params">(latch_)</span></span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">GetLocalDepthInternal</span>(dir_index);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="keyword">auto</span> ExtendibleHashTable&lt;K, V&gt;::<span class="built_in">GetLocalDepthInternal</span>(<span class="type">int</span> dir_index) <span class="type">const</span> -&gt; <span class="type">int</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> dir_[dir_index]-&gt;<span class="built_in">GetDepth</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="keyword">auto</span> ExtendibleHashTable&lt;K, V&gt;::<span class="built_in">GetNumBuckets</span>() <span class="type">const</span> -&gt; <span class="type">int</span> &#123;</span><br><span class="line">  <span class="function">std::shared_lock <span class="title">lock</span><span class="params">(latch_)</span></span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">GetNumBucketsInternal</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="keyword">auto</span> ExtendibleHashTable&lt;K, V&gt;::<span class="built_in">GetNumBucketsInternal</span>() <span class="type">const</span> -&gt; <span class="type">int</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> num_buckets_;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="keyword">auto</span> ExtendibleHashTable&lt;K, V&gt;::<span class="built_in">Find</span>(<span class="type">const</span> K &amp;key, V &amp;value) -&gt; <span class="type">bool</span> &#123;</span><br><span class="line">  <span class="function">std::shared_lock <span class="title">lock</span><span class="params">(latch_)</span></span>;</span><br><span class="line">  <span class="type">size_t</span> idx = <span class="built_in">IndexOf</span>(key);</span><br><span class="line">  <span class="keyword">return</span> dir_[idx]-&gt;<span class="built_in">Find</span>(key, value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="keyword">auto</span> ExtendibleHashTable&lt;K, V&gt;::<span class="built_in">Remove</span>(<span class="type">const</span> K &amp;key) -&gt; <span class="type">bool</span> &#123;</span><br><span class="line">  <span class="function">std::unique_lock <span class="title">lock</span><span class="params">(latch_)</span></span>;</span><br><span class="line">  <span class="type">size_t</span> idx = <span class="built_in">IndexOf</span>(key);</span><br><span class="line">  <span class="keyword">return</span> dir_[idx]-&gt;<span class="built_in">Remove</span>(key);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="type">void</span> ExtendibleHashTable&lt;K, V&gt;::<span class="built_in">Insert</span>(<span class="type">const</span> K &amp;key, <span class="type">const</span> V &amp;value) &#123;</span><br><span class="line">  <span class="function">std::unique_lock <span class="title">lock</span><span class="params">(latch_)</span></span>;  <span class="comment">// 独占锁(写锁)</span></span><br><span class="line">  <span class="keyword">while</span> (<span class="literal">true</span>) &#123;                  <span class="comment">// 循环扩容防止分裂一次以后，还是被分配到同一个桶</span></span><br><span class="line">    <span class="type">size_t</span> idx;</span><br><span class="line">    <span class="type">bool</span> ok;</span><br><span class="line">    &#123;</span><br><span class="line">      idx = <span class="built_in">IndexOf</span>(key);</span><br><span class="line">      ok = dir_[idx]-&gt;<span class="built_in">Insert</span>(key, value);  <span class="comment">// 插入成功</span></span><br><span class="line">      <span class="keyword">if</span> (ok) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (dir_[idx]-&gt;<span class="built_in">GetDepth</span>() == global_depth_) &#123;  <span class="comment">// 局部深度等于全局深度 桶分裂且目录扩张</span></span><br><span class="line">      <span class="built_in">Expansion</span>();</span><br><span class="line">      <span class="built_in">RedistributeBucket</span>(idx);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;  <span class="comment">// 桶分裂</span></span><br><span class="line">      <span class="built_in">RedistributeBucket</span>(idx);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="keyword">auto</span> ExtendibleHashTable&lt;K, V&gt;::<span class="built_in">Expansion</span>() -&gt; <span class="type">void</span> &#123;</span><br><span class="line">  <span class="type">size_t</span> old_size = <span class="number">1</span> &lt;&lt; global_depth_++;         <span class="comment">// 二进制位向左移一位，就是两倍扩容前</span></span><br><span class="line">  <span class="type">size_t</span> new_size = <span class="number">1</span> &lt;&lt; global_depth_;           <span class="comment">// 二进制位向左移一位，就是两倍扩容前</span></span><br><span class="line">  dir_.<span class="built_in">reserve</span>(new_size);                         <span class="comment">// 扩容到新容量</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">size_t</span> i = old_size; i &lt; new_size; ++i) &#123;  <span class="comment">// 从后一半开始指针重定向old_size开始</span></span><br><span class="line">    dir_.<span class="built_in">push_back</span>(dir_[<span class="built_in">CalIndex</span>(i, global_depth_)]);  <span class="comment">// eg:从i=old_size=4(100) 全局深度已经加一为3 传入 传出dir[4]</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// localDepth &lt; globalDepth 多个dir_指向一个同一个新桶</span></span><br><span class="line"><span class="comment">// 只会分裂出一个新桶</span></span><br><span class="line"><span class="comment">// 注意把多个dir_分成两种指向</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="keyword">auto</span> ExtendibleHashTable&lt;K, V&gt;::<span class="built_in">RedistributeBucket</span>(<span class="type">size_t</span> idx) -&gt; <span class="type">void</span> &#123;</span><br><span class="line">  <span class="type">int</span> old_depth = dir_[idx]-&gt;<span class="built_in">GetDepth</span>();                      <span class="comment">// 先拿桶的原局部深度为分裂做准备</span></span><br><span class="line">                                                              <span class="comment">//  size_t old_size = 1 &lt;&lt; (global_depth_ - 1);</span></span><br><span class="line">  <span class="type">size_t</span> old_idx = idx &amp; ((<span class="number">1</span> &lt;&lt; old_depth) - <span class="number">1</span>);              <span class="comment">// 拿到旧的指针指向</span></span><br><span class="line">  <span class="keyword">auto</span> &amp;old_bucket = dir_[old_idx];                           <span class="comment">// 指向旧桶指针不变</span></span><br><span class="line">  <span class="keyword">auto</span> &amp;new_bucket = dir_[<span class="built_in">CalIndex</span>(old_idx, old_depth + <span class="number">1</span>)];  <span class="comment">// 指针定向新桶</span></span><br><span class="line">  <span class="comment">//  auto &amp;new_bucket = dir_[old_idx + old_size];     // 指针定向新桶</span></span><br><span class="line">  new_bucket.<span class="built_in">reset</span>(<span class="keyword">new</span> <span class="built_in">Bucket</span>(bucket_size_, old_depth));  <span class="comment">// 重置bucket</span></span><br><span class="line"></span><br><span class="line">  old_bucket-&gt;<span class="built_in">IncrementDepth</span>();  <span class="comment">// 局部深度自增</span></span><br><span class="line">  new_bucket-&gt;<span class="built_in">IncrementDepth</span>();</span><br><span class="line"></span><br><span class="line">  <span class="type">size_t</span> diff = global_depth_ - old_depth;  <span class="comment">// 差 1</span></span><br><span class="line">  <span class="type">int</span> n = (<span class="number">1</span> &lt;&lt; diff) - <span class="number">1</span>;                  <span class="comment">//  n = 1</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; ++i) &#123;                                       <span class="comment">// 溢出桶重新分桶                 ********</span></span><br><span class="line">    <span class="type">size_t</span> index = (i &lt;&lt; old_depth) + old_idx;                         <span class="comment">// i = 0 old_bucket i = 1 new_bucket</span></span><br><span class="line">    dir_[index] = <span class="built_in">static_cast</span>&lt;<span class="type">bool</span>&gt;(i &amp; <span class="number">1</span>) ? new_bucket : old_bucket;  <span class="comment">// 指针指向确定</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  num_buckets_ += <span class="number">1</span>;                              <span class="comment">// 桶数量加1</span></span><br><span class="line">  <span class="keyword">auto</span> list = std::<span class="built_in">move</span>(old_bucket-&gt;<span class="built_in">GetItems</span>());  <span class="comment">// 拿到旧桶的所有数据</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;[k, v] : list) &#123;  <span class="comment">// 遍历旧桶重新分配</span></span><br><span class="line">    dir_[<span class="built_in">IndexOf</span>(k)]-&gt;<span class="built_in">Insert</span>(k, v);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//===--------------------------------------------------------------------===//</span></span><br><span class="line"><span class="comment">// Bucket</span></span><br><span class="line"><span class="comment">//===--------------------------------------------------------------------===//</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line">ExtendibleHashTable&lt;K, V&gt;::Bucket::<span class="built_in">Bucket</span>(<span class="type">size_t</span> array_size, <span class="type">int</span> depth) : <span class="built_in">size_</span>(array_size), <span class="built_in">depth_</span>(depth) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="keyword">auto</span> ExtendibleHashTable&lt;K, V&gt;::Bucket::<span class="built_in">Find</span>(<span class="type">const</span> K &amp;key, V &amp;value) -&gt; <span class="type">bool</span> &#123;</span><br><span class="line">  <span class="function">std::shared_lock <span class="title">lock</span><span class="params">(mutex_)</span></span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;[k, v] : list_) &#123;</span><br><span class="line">    <span class="keyword">if</span> (k == key) &#123;</span><br><span class="line">      value = v;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="keyword">auto</span> ExtendibleHashTable&lt;K, V&gt;::Bucket::<span class="built_in">Remove</span>(<span class="type">const</span> K &amp;key) -&gt; <span class="type">bool</span> &#123;</span><br><span class="line">  <span class="function">std::unique_lock <span class="title">lock</span><span class="params">(mutex_)</span></span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">auto</span> it = list_.<span class="built_in">begin</span>(); it != list_.<span class="built_in">end</span>(); ++it) &#123;</span><br><span class="line">    <span class="keyword">if</span> (it-&gt;first == key) &#123;</span><br><span class="line">      list_.<span class="built_in">erase</span>(it);</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</span><br><span class="line"><span class="keyword">auto</span> ExtendibleHashTable&lt;K, V&gt;::Bucket::<span class="built_in">Insert</span>(<span class="type">const</span> K &amp;key, <span class="type">const</span> V &amp;value) -&gt; <span class="type">bool</span> &#123;</span><br><span class="line">  <span class="function">std::unique_lock <span class="title">lock</span><span class="params">(mutex_)</span></span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;[k, v] : list_) &#123;  <span class="comment">// 少了更新</span></span><br><span class="line">    <span class="keyword">if</span> (k == key) &#123;</span><br><span class="line">      v = value;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">IsFullWithGuard</span>()) &#123;  <span class="comment">// 链表满了</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  list_.<span class="built_in">emplace_back</span>(key, value);  <span class="comment">// 插入的情况</span></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> <span class="keyword">class</span> <span class="title class_">ExtendibleHashTable</span>&lt;<span class="type">page_id_t</span>, Page *&gt;;</span><br><span class="line"><span class="comment">// template class ExtendibleHashTable&lt;Page *, std::list&lt;Page *&gt;::iterator&gt;;</span></span><br><span class="line"><span class="keyword">template</span> <span class="keyword">class</span> <span class="title class_">ExtendibleHashTable</span>&lt;<span class="type">int</span>, <span class="type">int</span>&gt;;</span><br><span class="line"><span class="comment">// test purpose</span></span><br><span class="line"><span class="keyword">template</span> <span class="keyword">class</span> <span class="title class_">ExtendibleHashTable</span>&lt;<span class="type">int</span>, std::string&gt;;</span><br><span class="line"><span class="keyword">template</span> <span class="keyword">class</span> <span class="title class_">ExtendibleHashTable</span>&lt;<span class="type">int</span>, std::list&lt;<span class="type">int</span>&gt;::iterator&gt;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -232,133 +263,115 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://eleplantttt.github.io/2023/08/15/CMU15-445P1%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/08/14/LRU-K/" class="archive-article-date">
-  	<time datetime="2023-08-14T13:47:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-14</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2023/08/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A1%B9%E7%9B%AE%E6%8A%80%E6%9C%AF%E7%82%B9/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          数据库项目技术点
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/08/14/LRU-K/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">LRU-K</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/08/14/LRU-K/">LRU-K</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CMU15/445</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/08/14/%E5%93%88%E5%B8%8C%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2023-08-14T12:40:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/08/14/%E5%93%88%E5%B8%8C%E8%A1%A8/">哈希表</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">STL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/08/14/%E5%8F%AF%E6%89%A9%E5%B1%95%E5%93%88%E5%B8%8C%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2023-08-14T11:45:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/08/14/%E5%8F%AF%E6%89%A9%E5%B1%95%E5%93%88%E5%B8%8C%E8%A1%A8/">可扩展哈希表</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CMU15/445</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -381,8 +394,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -155,6 +155,171 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-数据库项目技术点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/08/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A1%B9%E7%9B%AE%E6%8A%80%E6%9C%AF%E7%82%B9/">数据库项目技术点</a>
+    </h1>
+  
+
+        
+        <a href="/2023/08/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A1%B9%E7%9B%AE%E6%8A%80%E6%9C%AF%E7%82%B9/" class="archive-article-date">
+  	<time datetime="2023-08-15T07:32:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>代码实现细节：</p>
+<ul>
+<li><p>返回类型尾置：这种实现为所有函数，形式为函数前加auto将要返回的类型放在括号前，一开始不习惯这样写，后面回过头来看代码发现这个新特性很方便，能够快速识别返回类型，这种形式对于返回类型比较复杂的函数最有效，比如返回类型是数组的指针或者数组的引用。</p>
+</li>
+<li><p>shared_lock、unique_lock、lock_guard、scope_lock</p>
+<ul>
+<li><strong>lock_guard</strong>：一个最简单的RAII风格的<code>lock_guard</code> 不支持手动锁定和解锁，也不支持条件变量。</li>
+<li><strong>unique_lock</strong>：这是<strong>C++11</strong>中一个更灵活的锁，它允许手动锁定和解锁互斥量，以及与条件变量一起使用（是lock_guard的进阶版）。与 lock_guard 类似，unique_lock 也是一个 RAII 风格的锁，当对象离开作用域时，它会自动解锁互斥量。unique_lock 还支持延迟锁定、尝试锁定和可转移的锁所有权。</li>
+<li><strong>shared_lock</strong>：<strong>C++14</strong>引入的锁，这是一个用于共享互斥量（如 std::shared_mutex 或 std::shared_timed_mutex）的锁，允许多个线程同时读取共享数据，但在写入数据时仍然保证互斥。shared_lock 也是一个 RAII 风格的锁，当对象离开作用域时，它会自动解锁共享互斥量。shared_lock 支持手动锁定和解锁，以及尝试锁定。</li>
+<li><strong>scoped_lock</strong>：<strong>这是 C++17 引入的一个新锁，用于同时锁定多个互斥量，以避免死锁</strong>。scoped_lock 是一个 RAII 风格的锁，当对象离开作用域时，它会自动解锁所有互斥量。scoped_lock 不支持手动锁定和解锁，也不支持条件变量。它的主要用途是在需要同时锁定多个互斥量时提供简单且安全的解决方案。</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CMU15/445</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/08/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A1%B9%E7%9B%AE%E6%8A%80%E6%9C%AF%E7%82%B9/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CMU15-445P1代码实现细节" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/08/15/CMU15-445P1%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82/">CMU15/445P1代码实现细节</a>
+    </h1>
+  
+
+        
+        <a href="/2023/08/15/CMU15-445P1%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82/" class="archive-article-date">
+  	<time datetime="2023-08-15T06:37:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-可扩展哈希表"><a href="#1-可扩展哈希表" class="headerlink" title="1.可扩展哈希表"></a>1.可扩展哈希表</h1><p><strong>需求分析：</strong></p>
+<ul>
+<li><code>Find(K, V)</code> : 对于给定的键K，检查它在哈希表中是否存在。如果存在，那么将这个指针相对应的值存进V中，并返回true。如果这个键不存在，那么返回false。</li>
+</ul>
+        
+          <a class="article-more-a" href="/2023/08/15/CMU15-445P1%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CMU15/445</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/08/15/CMU15-445P1%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-LRU-K" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -175,7 +340,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>一、LRU-K算法</strong></p>
+        <h1 id="CMU15-445（Fall-2022）P1-Task1LRU-k"><a href="#CMU15-445（Fall-2022）P1-Task1LRU-k" class="headerlink" title="CMU15-445（Fall 2022）P1#Task1LRU-k"></a>CMU15-445（Fall 2022）P1#Task1LRU-k</h1><p><strong>一、LRU-K算法</strong></p>
 <p>1、算法思想</p>
 <p>LRU-K中的K代表最近使用的次数，因此LRU可以认为是LRU-1。LRU-K的主要目的是为了<strong>解决LRU算法“缓存污染”的问题，其核心思想是将“最近使用过1次”的判断标准扩展为“最近使用过K次”</strong>。</p>
         
