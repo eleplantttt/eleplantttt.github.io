@@ -176,68 +176,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="STL实现原理及其实现"><a href="#STL实现原理及其实现" class="headerlink" title="STL实现原理及其实现"></a>STL实现原理及其实现</h1><p>STL提供了六⼤组件，彼此之间可以组合套⽤，这六⼤组件分别是:容器、算法、迭代器、仿函数、适配器（配接 器）、空间配置器。  </p>
-<p>STL六⼤组件的交互关系： </p>
-<ol>
-<li><p>容器通过空间配置器取得数据存储空间  </p>
-</li>
-<li><p>算法通过迭代器存储容器中的内容  </p>
-</li>
-<li><p>仿函数可以协助算法完成不同的策略的变化  </p>
-</li>
-<li><p>适配器可以修饰仿函数。</p>
-</li>
-</ol>
-<p>六大组件的基本作用：</p>
-<p><strong>Container(容器)</strong>:各种数据结构，如Vector,List,Deque,Set,Map,用来存放数据，STL容器是一种Class Template,就体积而言，这一部分很像冰山载海面的比率。<br><strong>Adapter(适配器)</strong>:一种用来修饰容器（Containers）或仿函数（Functors）或迭代器（Iterators）接口的东西，例如：STL提供的Queue和Stack，虽然看似容器，其实只能算是一种容器配接器，因为 它们的底部完全借助Deque，所有操作有底层的Deque供应。改变Functor接口者，称为Function Adapter;改变Container接口者，称为Container Adapter;改变Iterator接口者，称为Iterator Adapter。配接器的实现技术很难一言蔽之，必须逐一分析。<br><strong>Algorithm(算法)</strong>:各种常用算法如Sort,Search,Copy,Erase,从实现的角度来看，STL算法是一种Function Templates。<br><strong>Iterator(迭代器)</strong>:扮演容器与算法之间的胶合剂，是所谓的“泛型指针”，共有五种类型，以及其它衍生变化，从实现的角度来看，迭代器是一种将：Operators*,Operator-&gt;,Operator++,Operator–等相关操作予以重载的Class Template。所有STL容器都附带有自己专属的迭代器——是的，只有容器设计者才知道如何遍历自己的元素，原生指针（Native pointer）也是一种迭代器。<br><strong>Function object(函数对象)</strong>:行为类似函数，可作为算法的某种策略（Policy）,从实现的角度来看，仿函数是一种重载了Operator()的Class 或 Class Template。一般函数指针可视为狭义的仿函数。<br>**Allocator(分配器):**负责空间配置与管理，从实现的角度来看，配置器是一个实现了动态空间配置、空间管理、空间释放的Class Template</p>
-<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><h3 id="容器定义"><a href="#容器定义" class="headerlink" title="容器定义"></a>容器定义</h3><p>​    在数据存储上，有一种对象类型，它可以持有其它对象或指向其它对像的指针，这种对象类型就叫做容器。</p>
-<p>容器就是保存其它对象的对象，当然这是一个朴素的理解，这种“对象”还包含了一系列处理“其它对象”的方法。</p>
-<h3 id="常见容器"><a href="#常见容器" class="headerlink" title="常见容器"></a>常见容器</h3><p>容器是STL中很重要的一种数据结构。常见的容器包括</p>
-<ul>
-<li>vector容器</li>
-<li>deque双端数组</li>
-<li>stack栈模型</li>
-<li>queue队列模型</li>
-<li>list链表模型</li>
-<li>priotriy_queue优先级队列</li>
-<li>set与multiset容器</li>
-<li>map与multimap容器</li>
-</ul>
-<h3 id="容器分类"><a href="#容器分类" class="headerlink" title="容器分类"></a>容器分类</h3><p>常用的容器类型分为：</p>
-<ol>
-<li>顺序容器 （vector&#x2F;deque&#x2F;list）是一种各元素之间有顺序关系的线性表，是一种线性结构的可序群集。顺序性容器中的每个元素均有固定的位置，除非用删除或插入的操作改变这个位置。顺序容器的元素排列次序与元素值无关，而是由元素添加到容器里的次序决定。顺序容器包括：<strong>vector(向量)、list（列表）、deque（队列）</strong>。</li>
-<li>关联容器  (map&#x2F;set)  关联式容器是非线性的树结构，更准确的说是二叉树结构。各元素之间没有严格的物理上的顺序关系，也就是说元素在容器中并没有保存元素置入容器时的逻辑顺序。但是关联式容器提供了另一种根据元素特点排序的功能，这样迭代器就能根据元素的特点“顺序地”获取元素。元素是有序的集合，默认在插入的时候按升序排列。关联容器包括：<strong>map（集合）、set（映射）、multimap（多重集合）、multiset（多重映射）</strong>。</li>
-<li>容器适配器  (queue&#x2F;stack)  本质上，适配器是使一种不同的行为类似于另一事物的行为的一种机制。容器适配器让一种已存在的容器类型采用另一种不同的抽象类型的工作方式实现。适配器是容器的接口，它本身不能直接保存元素，它保存元素的机制是调用另一种顺序容器去实现，即可以把适配器看作“它保存一个容器，这个容器再保存所有元素”。STL 中包含三种适配器：<strong>栈stack 、队列queue 和优先级队列priority_queue</strong> 。</li>
-</ol>
-<p><img src="/../assets/%E5%AE%B9%E5%99%A8.png" alt="容器"></p>
-<h4 id="顺序容器"><a href="#顺序容器" class="headerlink" title="顺序容器"></a>顺序容器</h4><p><strong>1.vector</strong><br>        <strong>vector是一种动态数组，在内存中具有连续的存储空间，支持快速随机访问。由于具有连续的存储空间，所以在插入和删除操作方面，效率比较慢。</strong>vector有多个构造函数，默认的构造函数是构造一个初始长度为0的内存空间，且分配的内存空间是以2的倍数动态增长的。在<strong>push_back</strong>的过程中，若发现分配的内存空间不足，则重新分配一段连续的内存空间，其大小是现在连续空间的2倍（gcc）vs下1.5倍，再将原先空间中的元素复制到新的空间中，性能消耗比较大。</p>
-<p>​		vector的另一个常见的问题就是<strong>clear操作</strong>。clear函数只是把vector的size清为零，但vector中的元素在内存中并没有消除，所以在使用vector的过程中会发现内存消耗会越来越多，导致内存泄露，现在经常用的方法是swap函数来进行解决</p>
-<h5 id="vector容器实现与扩充"><a href="#vector容器实现与扩充" class="headerlink" title="vector容器实现与扩充"></a>vector容器实现与扩充</h5><p>底层实现 Vector在堆中分配了⼀段连续的内存空间来存放元素 </p>
-<p> 1、三个迭代器  </p>
-<p>（1）first ： 指向的是vector中对象的起始字节位置 </p>
-<p>（2）last ： 指向当前最后⼀个元素的末尾字节 </p>
-<p>（3）end ： 指向整个vector容器所占⽤内存空间的末尾字节  </p>
-<p>（1）last - first ： 表⽰ vector 容器中⽬前已被使⽤的内存空间 </p>
-<p>（2）end - last ： 表⽰ vector 容器⽬前空闲的内存空间 </p>
-<p>（3）end - first ： 表⽰ vector 容器的容量 </p>
-<p><strong>2.deque</strong><br>deque和vector类似，支持快速随机访问。二者最大的区别在于，vector只能在末端插入数据，而deque支持双端插入数据。</p>
-<p>deque的内存空间分布是小片的连续，小片间用链表相连，实际上内部有一个map的指针。deque空间的重新分配要比vector快，重新分配空间后，原有的元素是不需要拷贝的。</p>
-<p>与vector不同的是，deque还支持从开始端插入数据：push_front()。其余类似vector操作方法的使用。</p>
-<p>push_back 从尾部插入元素<br>push_front 从头部插入元素<br>pop_back 从尾部删除元素<br>pop_front 从头部删除元素</p>
-<p><strong>3.list</strong></p>
-<p>list是一个双向链表，因此它的<strong>内存空间是可以不连续</strong>的，通过指针来进行数据的访问，这使list的<strong>随机存储变得非常低效</strong>，因此list没有提供[]操作符的重载。但list可以很好地支持<strong>任意地方的插入和删除</strong>，只需移动相应的指针即可。</p>
-<h4 id="选择顺序容器的原则"><a href="#选择顺序容器的原则" class="headerlink" title="选择顺序容器的原则"></a>选择顺序容器的原则</h4><p>实际使用时，如何选择这三个容器中哪一个，应根据你的需要而定，一般应遵循下面的原则：</p>
-<ol>
-<li>如果你需要高效的随机存取，而不在乎插入和删除的效率，使用vector</li>
-<li>如果你需要大量的插入和删除，而不关心随即存取，则应使用list</li>
-<li>如果你需要随即存取，而且关心两端数据的插入和删除，则应使用deque</li>
-</ol>
-<p>顺序容器使用方法公共点：</p>
-<p><img src="/../assets/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230821202151_1.png" alt="微信图片_20230821202151"><img src="/../assets/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230821202151.png" alt="微信图片_20230821202151"><img src="/../assets/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230821202151_2.png" alt="微信图片_20230821202151_2"><img src="/../assets/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230821202324.png" alt="微信图片_20230821202324"><img src="/../assets/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230821202054.png" alt="微信图片_20230821202054"></p>
-<h4 id="关联容器"><a href="#关联容器" class="headerlink" title="关联容器"></a>关联容器</h4><p>关联容器和顺序容器有着根本的不同：关联容器中的元素是按关键字来保存和访问的。与之相对，顺序容器中的元素是按它们在容器中的位置来顺序保存和访问的。</p>
-<p>关联容器支持高效的关键字查找与访问。两个主要的关联容器类型是map与set。</p>
-<p> 在使用关联容器时，它的键不但有一个类型，而且还有一个相关的比较函数。所用的比较函数必须在键类型上定义严格弱排序（strict weak ordering）：可理解为键类型数据上的“小于”关系，虽然实际上可以选择将比较函数设计得更复杂。<br>       对于键类型，唯一的约束就是必须支持 &lt; 操作符，至于是否支持其他的关系或相等运算，则不作要求。<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/NXHYD/article/details/108098430">C++ STL六大组件-1-Container(容器) _c++ container_AliceWanderAI的博客-CSDN博客</a></p>
-<p>下回有时间写</p>
-
+        
+          <a class="article-more-a" href="/2023/08/21/STL/#more">more >></a>
+        
       
 
       
