@@ -155,6 +155,94 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mysql实例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/09/15/mysql%E5%AE%9E%E4%BE%8B/">mysql实例</a>
+    </h1>
+  
+
+        
+        <a href="/2023/09/15/mysql%E5%AE%9E%E4%BE%8B/" class="archive-article-date">
+  	<time datetime="2023-09-15T02:34:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="mysql-查询重复记录"><a href="#mysql-查询重复记录" class="headerlink" title="mysql 查询重复记录"></a>mysql 查询重复记录</h1><h2 id="一、使用GROUP-BY语句查询重复记录"><a href="#一、使用GROUP-BY语句查询重复记录" class="headerlink" title="一、使用GROUP BY语句查询重复记录"></a>一、使用GROUP BY语句查询重复记录</h2><p>在MySQL中，可以使用GROUP BY语句来查询重复记录。GROUP BY语句将相同的数据分组，并对每个组进行计算。通过对计算结果进行筛选，可以筛选出重复的记录。</p>
+<p>例如，如果要查询表中重复的姓名和邮件地址，可以使用以下SQL语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> name, email, <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> users <span class="keyword">GROUP</span> <span class="keyword">BY</span> name, email <span class="keyword">HAVING</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="operator">&gt;</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>该语句中使用了GROUP BY语句将相同的姓名和邮件地址分组，并对每个组进行计数。计数结果大于1的就是重复记录。最终的查询结果包括姓名、邮件地址和计数值。</p>
+<h2 id="二、使用DISTINCT关键字查询重复记录"><a href="#二、使用DISTINCT关键字查询重复记录" class="headerlink" title="二、使用DISTINCT关键字查询重复记录"></a>二、使用DISTINCT关键字查询重复记录</h2><p>除了使用GROUP BY语句，还可以使用DISTINCT关键字来查询重复记录。DISTINCT关键字用于去除重复的记录。</p>
+<p>例如，如果要查询表中重复的邮件地址，可以使用以下SQL语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> email ``<span class="keyword">FROM</span> users ``<span class="keyword">GROUP</span> <span class="keyword">BY</span> email ``<span class="keyword">HAVING</span> ``COUNT``(<span class="operator">*</span>) <span class="operator">&gt;</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>该语句中使用了DISTINCT关键字去除重复的邮件地址，然后使用GROUP BY语句将相同的邮件地址分组，并对每个组进行计数。计数结果大于1的就是重复的邮件地址。最终的查询结果只包括重复的邮件地址。</p>
+<h2 id="三、使用SELF-JOIN语句查询重复记录"><a href="#三、使用SELF-JOIN语句查询重复记录" class="headerlink" title="三、使用SELF JOIN语句查询重复记录"></a>三、使用SELF JOIN语句查询重复记录</h2><p>除了使用GROUP BY语句和DISTINCT关键字，还可以使用SELF JOIN语句来查询重复记录。SELF JOIN语句用于将同一表中的记录进行连接。</p>
+<p>例如，如果要查询表中重复的邮件地址，可以使用以下SQL语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> u1.email <span class="keyword">FROM</span> users u1 <span class="keyword">JOIN</span> users u2 <span class="keyword">ON</span> u1.email <span class="operator">=</span> u2.email <span class="keyword">AND</span> u1.id <span class="operator">&lt;&gt;</span> u2.id;</span><br></pre></td></tr></table></figure>
+
+<p>该语句使用了SELF JOIN语句将同一表中具有相同邮件地址的记录连接在一起。通过同时满足u1.email &#x3D; u2.email和u1.id &lt;&gt; u2.id的条件，查询出重复的记录。最终的查询结果只包括重复的邮件地址。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/09/15/mysql%E5%AE%9E%E4%BE%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-近日面试杂记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -841,74 +929,6 @@
 
 
   
-    <article id="post-计算机网络（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/07/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89/">计算机网络（一）</a>
-    </h1>
-  
-
-        
-        <a href="/2023/07/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2023-07-31T13:40:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="进程中通信方式"><a href="#进程中通信方式" class="headerlink" title="进程中通信方式"></a>进程中通信方式</h1><ul>
-<li>管道pipe：管道是一种半双工的通信方式，数据只能单向流动，而且只能在具有亲缘关系的进程间使用。进程的亲缘关系通常是指父子进程关系。</li>
-<li>命名管道FIFO：有名管道也是半双工的通信方式，但是它允许无亲缘关系进程间的通信。</li>
-</ul>
-        
-          <a class="article-more-a" href="/2023/07/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/07/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1019,6 +1039,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
             
             <div class="clearfix"></div>

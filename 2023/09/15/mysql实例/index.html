@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://eleplantttt.github.io">
-  <title>数据库项目技术点 | 程学斌的个人博客</title>
+  <title>mysql实例 | 程学斌的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="代码实现细节：  返回类型尾置：这种实现为所有函数，形式为函数前加auto将要返回的类型放在括号前，一开始不习惯这样写，后面回过头来看代码发现这个新特性很方便，能够快速识别返回类型，这种形式对于返回类型比较复杂的函数最有效，比如返回类型是数组的指针或者数组的引用。  shared_lock、unique_lock、lock_guard、scope_lock  lock_guard：一个最简单的RA">
+  <meta name="description" content="mysql 查询重复记录一、使用GROUP BY语句查询重复记录在MySQL中，可以使用GROUP BY语句来查询重复记录。GROUP BY语句将相同的数据分组，并对每个组进行计算。通过对计算结果进行筛选，可以筛选出重复的记录。 例如，如果要查询表中重复的姓名和邮件地址，可以使用以下SQL语句： 1SELECT name, email, COUNT(*) FROM users GROUP BY n">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据库项目技术点">
-<meta property="og:url" content="https://eleplantttt.github.io/2023/08/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A1%B9%E7%9B%AE%E6%8A%80%E6%9C%AF%E7%82%B9/index.html">
+<meta property="og:title" content="mysql实例">
+<meta property="og:url" content="https://eleplantttt.github.io/2023/09/15/mysql%E5%AE%9E%E4%BE%8B/index.html">
 <meta property="og:site_name" content="程学斌的个人博客">
-<meta property="og:description" content="代码实现细节：  返回类型尾置：这种实现为所有函数，形式为函数前加auto将要返回的类型放在括号前，一开始不习惯这样写，后面回过头来看代码发现这个新特性很方便，能够快速识别返回类型，这种形式对于返回类型比较复杂的函数最有效，比如返回类型是数组的指针或者数组的引用。  shared_lock、unique_lock、lock_guard、scope_lock  lock_guard：一个最简单的RA">
+<meta property="og:description" content="mysql 查询重复记录一、使用GROUP BY语句查询重复记录在MySQL中，可以使用GROUP BY语句来查询重复记录。GROUP BY语句将相同的数据分组，并对每个组进行计算。通过对计算结果进行筛选，可以筛选出重复的记录。 例如，如果要查询表中重复的姓名和邮件地址，可以使用以下SQL语句： 1SELECT name, email, COUNT(*) FROM users GROUP BY n">
 <meta property="og:locale">
-<meta property="article:published_time" content="2023-08-15T07:32:37.000Z">
-<meta property="article:modified_time" content="2023-08-15T09:38:12.130Z">
+<meta property="article:published_time" content="2023-09-15T02:34:48.000Z">
+<meta property="article:modified_time" content="2023-09-15T02:40:09.056Z">
 <meta property="article:author" content="eleplantttt">
-<meta property="article:tag" content="CMU15&#x2F;445">
+<meta property="article:tag" content="sql">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="程学斌的个人博客" type="application/atom+xml">
@@ -155,39 +155,41 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-数据库项目技术点" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-mysql实例" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      数据库项目技术点
+      mysql实例
     </h1>
   
 
         
-        <a href="/2023/08/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A1%B9%E7%9B%AE%E6%8A%80%E6%9C%AF%E7%82%B9/" class="archive-article-date">
-  	<time datetime="2023-08-15T07:32:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-15</time>
+        <a href="/2023/09/15/mysql%E5%AE%9E%E4%BE%8B/" class="archive-article-date">
+  	<time datetime="2023-09-15T02:34:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>代码实现细节：</p>
-<ul>
-<li><p>返回类型尾置：这种实现为所有函数，形式为函数前加auto将要返回的类型放在括号前，一开始不习惯这样写，后面回过头来看代码发现这个新特性很方便，能够快速识别返回类型，这种形式对于返回类型比较复杂的函数最有效，比如返回类型是数组的指针或者数组的引用。</p>
-</li>
-<li><p>shared_lock、unique_lock、lock_guard、scope_lock</p>
-<ul>
-<li><strong>lock_guard</strong>：一个最简单的RAII风格的<code>lock_guard</code> 不支持手动锁定和解锁，也不支持条件变量。</li>
-<li><strong>unique_lock</strong>：这是<strong>C++11</strong>中一个更灵活的锁，它允许手动锁定和解锁互斥量，以及与条件变量一起使用（是lock_guard的进阶版）。与 lock_guard 类似，unique_lock 也是一个 RAII 风格的锁，当对象离开作用域时，它会自动解锁互斥量。unique_lock 还支持延迟锁定、尝试锁定和可转移的锁所有权。</li>
-<li><strong>shared_lock</strong>：<strong>C++14</strong>引入的锁，这是一个用于共享互斥量（如 std::shared_mutex 或 std::shared_timed_mutex）的锁，允许多个线程同时读取共享数据，但在写入数据时仍然保证互斥。shared_lock 也是一个 RAII 风格的锁，当对象离开作用域时，它会自动解锁共享互斥量。shared_lock 支持手动锁定和解锁，以及尝试锁定。</li>
-<li><strong>scoped_lock</strong>：<strong>这是 C++17 引入的一个新锁，用于同时锁定多个互斥量，以避免死锁</strong>。scoped_lock 是一个 RAII 风格的锁，当对象离开作用域时，它会自动解锁所有互斥量。scoped_lock 不支持手动锁定和解锁，也不支持条件变量。它的主要用途是在需要同时锁定多个互斥量时提供简单且安全的解决方案。</li>
-</ul>
-</li>
-</ul>
+        <h1 id="mysql-查询重复记录"><a href="#mysql-查询重复记录" class="headerlink" title="mysql 查询重复记录"></a>mysql 查询重复记录</h1><h2 id="一、使用GROUP-BY语句查询重复记录"><a href="#一、使用GROUP-BY语句查询重复记录" class="headerlink" title="一、使用GROUP BY语句查询重复记录"></a>一、使用GROUP BY语句查询重复记录</h2><p>在MySQL中，可以使用GROUP BY语句来查询重复记录。GROUP BY语句将相同的数据分组，并对每个组进行计算。通过对计算结果进行筛选，可以筛选出重复的记录。</p>
+<p>例如，如果要查询表中重复的姓名和邮件地址，可以使用以下SQL语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> name, email, <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> users <span class="keyword">GROUP</span> <span class="keyword">BY</span> name, email <span class="keyword">HAVING</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="operator">&gt;</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>该语句中使用了GROUP BY语句将相同的姓名和邮件地址分组，并对每个组进行计数。计数结果大于1的就是重复记录。最终的查询结果包括姓名、邮件地址和计数值。</p>
+<h2 id="二、使用DISTINCT关键字查询重复记录"><a href="#二、使用DISTINCT关键字查询重复记录" class="headerlink" title="二、使用DISTINCT关键字查询重复记录"></a>二、使用DISTINCT关键字查询重复记录</h2><p>除了使用GROUP BY语句，还可以使用DISTINCT关键字来查询重复记录。DISTINCT关键字用于去除重复的记录。</p>
+<p>例如，如果要查询表中重复的邮件地址，可以使用以下SQL语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> email ``<span class="keyword">FROM</span> users ``<span class="keyword">GROUP</span> <span class="keyword">BY</span> email ``<span class="keyword">HAVING</span> ``COUNT``(<span class="operator">*</span>) <span class="operator">&gt;</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>该语句中使用了DISTINCT关键字去除重复的邮件地址，然后使用GROUP BY语句将相同的邮件地址分组，并对每个组进行计数。计数结果大于1的就是重复的邮件地址。最终的查询结果只包括重复的邮件地址。</p>
+<h2 id="三、使用SELF-JOIN语句查询重复记录"><a href="#三、使用SELF-JOIN语句查询重复记录" class="headerlink" title="三、使用SELF JOIN语句查询重复记录"></a>三、使用SELF JOIN语句查询重复记录</h2><p>除了使用GROUP BY语句和DISTINCT关键字，还可以使用SELF JOIN语句来查询重复记录。SELF JOIN语句用于将同一表中的记录进行连接。</p>
+<p>例如，如果要查询表中重复的邮件地址，可以使用以下SQL语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> u1.email <span class="keyword">FROM</span> users u1 <span class="keyword">JOIN</span> users u2 <span class="keyword">ON</span> u1.email <span class="operator">=</span> u2.email <span class="keyword">AND</span> u1.id <span class="operator">&lt;&gt;</span> u2.id;</span><br></pre></td></tr></table></figure>
+
+<p>该语句使用了SELF JOIN语句将同一表中具有相同邮件地址的记录连接在一起。通过同时满足u1.email &#x3D; u2.email和u1.id &lt;&gt; u2.id的条件，查询出重复的记录。最终的查询结果只包括重复的邮件地址。</p>
 
       
 
@@ -222,7 +224,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CMU15/445</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sql</a>
         		</li>
       		
 		</ul>
@@ -278,7 +280,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://eleplantttt.github.io/2023/08/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%A1%B9%E7%9B%AE%E6%8A%80%E6%9C%AF%E7%82%B9/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://eleplantttt.github.io/2023/09/15/mysql%E5%AE%9E%E4%BE%8B/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -292,18 +294,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/08/15/%E7%BC%93%E5%86%B2%E6%B1%A0%E7%AE%A1%E7%90%86%E5%AE%9E%E4%BE%8B/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          缓冲池管理实例
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/08/15/CMU15-445P1%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CMU15/445P1代码实现细节</div>
+    <a href="/2023/09/14/%E8%BF%91%E6%97%A5%E9%9D%A2%E8%AF%95%E6%9D%82%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">近日面试杂记</div>
       <i class="icon-circle-right"></i>
     </a>
   
